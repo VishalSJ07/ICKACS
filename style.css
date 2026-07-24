@@ -118,6 +118,8 @@ img {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    padding: 0 40px;
+    width: 100%;
 }
 
 .college-logo-img {
@@ -841,4 +843,286 @@ img {
     .tracks-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.fee-note {
+    padding: 0 20px 20px;
+    text-align: center;
+    color: var(--highlight-blue);
+    font-size: 0.95rem;
+}
+
+/* Advisory Inner Grid Layout */
+.advisory-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    text-align: left;
+}
+
+.advisory-item {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+}
+
+.advisory-item:nth-child(odd) {
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+}
+
+.advisory-item:nth-child(even) {
+    padding-left: 10px;
+}
+
+.advisory-item h4 {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.advisory-item p {
+    color: #333;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Committees Single Card */
+.committee-single-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.committee-single-card .role-title {
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+
+.committee-single-card .role-title:first-child {
+    margin-top: 0;
+}
+
+.committee-single-card h4 {
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.committee-single-card .sub-role {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* Reduced Resource Persons */
+.resource-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.resource-grid .person-card {
+    flex: 0 1 250px;
+}
+
+/* =========================================
+   Responsive Design / Mobile Auto-Detect
+   ========================================= */
+
+/* Tablets and smaller PCs */
+@media screen and (max-width: 992px) {
+    .grid-2, .grid-3, .grid-4, .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* Mobile Phones */
+@media screen and (max-width: 768px) {
+    /* Header & Navbar adjustments */
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .college-info h1 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+    .accreditation {
+        font-size: 0.85rem;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+    
+    /* Typography & Spacing */
+    .hero h1 { 
+        font-size: 2rem; 
+    }
+    .hero p { 
+        font-size: 0.95rem; 
+    }
+    .section-padding { 
+        padding: 40px 0; 
+    }
+    .section-title-wrapper h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Committees and Inner Grids */
+    .advisory-inner-grid {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        gap: 15px;
+    }
+    .advisory-item {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 0 0 15px 0 !important;
+        text-align: center;
+    }
+    .advisory-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0 !important;
+    }
+    .committee-single-card {
+        padding: 20px 15px !important;
+    }
+    
+    /* Splash Screen Fixes */
+    .splash-content {
+        padding: 30px 20px;
+        width: 90%;
+    }
+    .splash-title {
+        font-size: 2.2rem;
+    }
+    .splash-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* General Container Fixes */
+    .container {
+        padding: 0 15px;
+    }
+    body {
+        overflow-x: hidden;
+    }
+}
+
+/* =========================================
+   Splash Screen / Intro
+   ========================================= */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #1b263b 0%, #0d1b2a 100%);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease-out, visibility 1s ease-out;
+    overflow: hidden;
+}
+
+#splash-screen::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg at 50% 50%, transparent, rgba(212, 175, 55, 0.15), transparent);
+    animation: rotate-glow 6s linear infinite;
+}
+
+@keyframes rotate-glow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#splash-screen.slide-up {
+    transform: translateY(-100%);
+    opacity: 0.9;
+    visibility: hidden;
+}
+
+.splash-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: splash-zoom 1s ease-out forwards;
+    background: rgba(13, 27, 42, 0.7);
+    padding: 50px 80px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.splash-title {
+    font-size: 3rem;
+    color: var(--gold);
+    margin: 0 0 10px 0;
+    letter-spacing: 4px;
+    font-weight: 800;
+}
+
+.splash-subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.splash-loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes splash-zoom {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
